@@ -13,10 +13,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"client": [
-			"io.github.zemelua.nade_nade.client.Nade_NadeClient"
+			"io.github.zemelua.nade_nade.client.NadeNadeClient"
 		],
 		"main": [
-			"io.github.zemelua.nade_nade.Nade_Nade"
+			"io.github.zemelua.nade_nade.NadeNade"
 		]
 	},
 	"mixins": [
