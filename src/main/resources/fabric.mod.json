@@ -1,0 +1,30 @@
+{
+	"schemaVersion": 1,
+	"id": "nade_nade",
+	"version": "${version}",
+	"name": "Nade-Nade",
+	"description": "",
+	"authors": [],
+	"contact": {
+		"repo": "https://github.com/zemelua/Nade-Nade"
+	},
+	"license": "All-Rights-Reserved",
+	"icon": "assets/nade_nade/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"io.github.zemelua.nade_nade.client.Nade_NadeClient"
+		],
+		"main": [
+			"io.github.zemelua.nade_nade.Nade_Nade"
+		]
+	},
+	"mixins": [
+		"nade_nade.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=${loader_version}",
+		"fabric": "*",
+		"minecraft": "${minecraft_version}"
+	}
+}
