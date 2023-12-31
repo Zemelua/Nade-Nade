@@ -1,5 +1,6 @@
 package io.github.zemelua.nade_nade;
 
+import io.github.zemelua.nade_nade.entity.effect.ModStatusEffects;
 import io.github.zemelua.nade_nade.network.NetworkHandler;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
@@ -12,6 +13,7 @@ public class NadeNade implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModStatusEffects.initialize();
 		NetworkHandler.initialize();
 	}
 
