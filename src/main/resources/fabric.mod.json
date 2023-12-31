@@ -17,6 +17,15 @@
 		],
 		"main": [
 			"io.github.zemelua.nade_nade.NadeNade"
+		],
+		"cardinal-components": [
+			"io.github.zemelua.nade_nade.component.ModComponents"
+		]
+	},
+	"custom": {
+		"cardinal-components": [
+			"nade_nade:headpatting",
+			"nade_nade:headpatted"
 		]
 	},
 	"mixins": [
