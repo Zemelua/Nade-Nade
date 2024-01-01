@@ -6,6 +6,9 @@
 	"mixins": [
 	],
 	"client": [
+		"MixinBipedEntityModel",
+		"MixinPlayerEntityRenderer",
+		"MixinWolfEntityModel"
 	],
 	"injectors": {
 		"defaultRequire": 1

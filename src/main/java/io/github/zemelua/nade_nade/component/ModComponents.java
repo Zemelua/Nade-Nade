@@ -16,11 +16,15 @@ import net.minecraft.entity.passive.WolfEntity;
 public class ModComponents implements EntityComponentInitializer {
 	public static final ComponentKey<IHeadpattingComponent> HEADPATTING = ComponentRegistryV3.INSTANCE.getOrCreate(NadeNade.identifier("headpatting"), IHeadpattingComponent.class);
 	public static final ComponentKey<IHeadpattedComponent> HEADPATTED = ComponentRegistryV3.INSTANCE.getOrCreate(NadeNade.identifier("headpatted"), IHeadpattedComponent.class);
+	// public static final ComponentKey<IHeadpattedAnimationStateComponent> HEADPATTED_ANIMATION_STATE = ComponentRegistryV3.INSTANCE.getOrCreate(NadeNade.identifier("headpatted_animation_state"), IHeadpattedAnimationStateComponent.class);
 
 	@Override
 	public void registerEntityComponentFactories(EntityComponentFactoryRegistry registry) {
 		registry.registerForPlayers(HEADPATTING, PlayerHeadpattingComponent::new, RespawnCopyStrategy.NEVER_COPY);
+
 		registry.registerFor(WolfEntity.class, HEADPATTED, TameableHeadpattedComponent::new);
 		registry.registerFor(CatEntity.class, HEADPATTED, TameableHeadpattedComponent::new);
+
+		// registry.registerFor(WolfEntity.class, HEADPATTED_ANIMATION_STATE, IHeadpattedAnimationStateComponent.Impl::new);
 	}
 }

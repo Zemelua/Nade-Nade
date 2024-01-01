@@ -20,7 +20,8 @@
 		],
 		"cardinal-components": [
 			"io.github.zemelua.nade_nade.component.ModComponents"
-		]
+		],
+		"mm:early_risers": [ "io.github.zemelua.nade_nade.tinker.EarlyRiser" ]
 	},
 	"custom": {
 		"cardinal-components": [

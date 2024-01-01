@@ -10,10 +10,20 @@ import java.util.Optional;
 public abstract class AbstractHeadpattingComponent<T extends Entity> implements IHeadpattingComponent {
 	protected final T provider;
 	@Nullable protected Entity target;
+	protected int headpattingTicks;
 
 	protected AbstractHeadpattingComponent(T provider) {
 		this.provider = provider;
 		this.target = null;
+	}
+
+	@Override
+	public void tick() {
+		if (this.isHeadpatting()) {
+			this.headpattingTicks++;
+		} else if (this.headpattingTicks > 0) {
+			this.headpattingTicks = 0;
+		}
 	}
 
 	protected void onStartHeadpatting(Entity newTarget) {}
@@ -36,6 +46,11 @@ public abstract class AbstractHeadpattingComponent<T extends Entity> implements 
 	@Override
 	public Optional<Entity> getTarget() {
 		return Optional.ofNullable(this.target);
+	}
+
+	@Override
+	public int getHeadpattingTicks() {
+		return this.headpattingTicks;
 	}
 
 	protected void sync() {
