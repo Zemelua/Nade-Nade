@@ -1,5 +1,6 @@
 package io.github.zemelua.nade_nade.component;
 
+import io.github.zemelua.nade_nade.client.NadeNadeClient;
 import io.github.zemelua.nade_nade.component.headpatting.IHeadpattingComponent;
 import io.github.zemelua.nade_nade.network.NetworkHandler;
 import net.fabricmc.api.EnvType;
@@ -18,30 +19,29 @@ public final class HeadpatManager {
 	public static void clientTick(MinecraftClient client) {
 		if (client.player == null) return;
 
-		IHeadpattingComponent component = client.player.getComponent(ModComponents.HEADPATTING);
+		IHeadpattingComponent headpatter = client.player.getComponent(ModComponents.HEADPATTING);
 		Optional<Entity> crosshairTarget = Optional.ofNullable(client.crosshairTarget)
 				.filter(h -> h instanceof EntityHitResult)
 				.map(h -> ((EntityHitResult) h).getEntity())
 				.filter(e -> ModComponents.HEADPATTED.maybeGet(e).isPresent());
 
-		// if (component.isHeadpatting()) NadeNade.LOGGER.info("nade");
-
-		if (true) {
+		if (client.options.attackKey.isPressed() || NadeNadeClient.KEY_HEADPAT.isPressed()) {
 			if (crosshairTarget.isPresent()) {
-				if (component.getTarget().isPresent()) {
-					if (!component.getTarget().get().equals(crosshairTarget.get())) {
+				if (headpatter.getTarget().isPresent()) {
+					if (!headpatter.getTarget().get().equals(crosshairTarget.get())) {
 						sendFinishHeadpatting();
 					}
-				} else if (component.canHeadpat(crosshairTarget.get())) {
+				} else if (headpatter.canHeadpat(crosshairTarget.get()) && crosshairTarget.get().getComponent(ModComponents.HEADPATTED).isHeadpattable(client.player)) {
+					headpatter.startHeadpatting(crosshairTarget.get());
 					sendStartHeadpatting(crosshairTarget.get());
 				}
 			} else {
-				if (component.getTarget().isPresent()) {
+				if (headpatter.getTarget().isPresent()) {
 					sendFinishHeadpatting();
 				}
 			}
 		} else {
-			if (component.getTarget().isPresent()) {
+			if (headpatter.getTarget().isPresent()) {
 				sendFinishHeadpatting();
 			}
 		}
