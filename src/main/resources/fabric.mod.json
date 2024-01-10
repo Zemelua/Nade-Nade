@@ -12,16 +12,12 @@
 	"icon": "assets/nade_nade/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"client": [
-			"io.github.zemelua.nade_nade.client.NadeNadeClient"
-		],
-		"main": [
-			"io.github.zemelua.nade_nade.NadeNade"
-		],
-		"cardinal-components": [
-			"io.github.zemelua.nade_nade.component.ModComponents"
-		],
-		"mm:early_risers": [ "io.github.zemelua.nade_nade.tinker.EarlyRiser" ]
+		"client": [ "io.github.zemelua.nade_nade.client.NadeNadeClient" ],
+		"main": [ "io.github.zemelua.nade_nade.NadeNade" ],
+		"cardinal-components": [ "io.github.zemelua.nade_nade.component.ModComponents" ],
+		"mm:early_risers": [ "io.github.zemelua.nade_nade.tinker.EarlyRiser" ],
+		"modmenu": [ "io.github.zemelua.nade_nade.client.NadeNadeClient" ],
+		"umu-config-client": [ "io.github.zemelua.nade_nade.client.NadeNadeClient" ]
 	},
 	"custom": {
 		"cardinal-components": [
