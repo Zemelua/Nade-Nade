@@ -25,7 +25,8 @@ public final class HeadpatManager {
 				.map(h -> ((EntityHitResult) h).getEntity())
 				.filter(e -> ModComponents.HEADPATTED.maybeGet(e).isPresent());
 
-		if (client.options.attackKey.isPressed() || NadeNadeClient.KEY_HEADPAT.isPressed()) {
+		if ((NadeNadeClient.CONFIG.useAttackKey() && client.options.attackKey.isPressed())
+				|| (NadeNadeClient.CONFIG.useAdditionalKey() && NadeNadeClient.KEY_HEADPAT.isPressed())) {
 			if (crosshairTarget.isPresent()) {
 				if (headpatter.getTarget().isPresent()) {
 					if (!headpatter.getTarget().get().equals(crosshairTarget.get())) {

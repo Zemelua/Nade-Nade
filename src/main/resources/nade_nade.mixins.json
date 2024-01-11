@@ -6,9 +6,7 @@
 	"mixins": [
 	],
 	"client": [
-		"MixinBipedEntityModel",
-		"MixinPlayerEntityRenderer",
-		"MixinWolfEntityModel"
+		"MixinAbstractInventoryScreen", "MixinBipedEntityModel", "MixinPlayerEntityRenderer", "MixinWolfEntityModel"
 	],
 	"injectors": {
 		"defaultRequire": 1

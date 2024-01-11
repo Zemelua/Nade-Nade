@@ -19,7 +19,7 @@ import java.util.List;
 
 public class NadeNadeClient implements ClientModInitializer, IConfigProvider, ModMenuApi {
 	public static final ModClientConfig CONFIG = new ModClientConfig();
-	public static final KeyBinding KEY_HEADPAT = new KeyBinding("key.nade_nade.headpat", GLFW.GLFW_KEY_P, KeyBinding.GAMEPLAY_CATEGORY);
+	public static final KeyBinding KEY_HEADPAT = new KeyBinding("key.nade_nade.headpat", GLFW.GLFW_KEY_UNKNOWN, KeyBinding.GAMEPLAY_CATEGORY);
 
 	@Override
 	public void onInitializeClient() {

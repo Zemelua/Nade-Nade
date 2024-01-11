@@ -22,7 +22,7 @@ public class ModClientConfig {
 				.defaultValue(true)
 				.build();
 		this.useAdditionalKey = BooleanConfigValue.builder(NadeNade.identifier("use_additional_key"))
-				.defaultValue(true)
+				.defaultValue(false)
 				.build();
 		this.container = ConfigContainer.builder(NadeNade.identifier("nade_nade_client"))
 				.addValue(this.useAttackKey)
